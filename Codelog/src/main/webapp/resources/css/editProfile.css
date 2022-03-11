@@ -1,0 +1,66 @@
+.b {
+  border: 1px solid black;
+}
+
+@media (min-width: 768px) {
+  #user-modify-container {
+    width: 750px;
+  }
+}
+
+@media (min-width: 992px) {
+  #user-modify-container {
+    width: 940px;
+  }
+}
+
+.upload-btn {
+  background-color: rgba(13, 110, 253, 255);
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  width: 130px;
+  border-radius: 6px;
+  cursor: pointer;
+
+}
+
+.del-btn {
+  width: 130px;
+}
+
+#img-preview {
+  border-radius: 70px;
+}
+
+.img-upload {
+  display: none;
+}
+
+.mod-info {
+  display: none;
+}
+
+.user-info {
+  margin-left: 4.5%;
+}
+
+.email-id {
+  width: 160px;
+  display: inline-block;
+  margin: 0;
+}
+
+.at {
+  display: inline-block;
+}
+
+.mail-select {
+  width: 200px;
+  display: inline-block;
+}
+
+.mod-submit-btn,
+.mod-cancel-btn {
+  width: 100px;
+}

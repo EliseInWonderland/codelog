@@ -1,0 +1,68 @@
+.main {
+      text-align: center;
+    }
+     /* 아이디 */
+    .id {
+      display: inline;
+      font-size: 25px;
+      font-weight: bold;
+    }
+    /* 팔로우버튼 */
+    .follow-button{
+      font-size: 12px;
+      border: none;
+      padding: 0 3px;
+      text-align: center;
+      border-radius: 5px;
+      background-color: lightgray;
+    }
+    .follow-button:active{
+      opacity: 0.5;
+    }
+    .posts{
+      margin-bottom: 10px;
+      margin-top: 10px;
+    }
+
+    .col {
+      width: 30%;
+      margin: center;
+    }
+    /* 검색창 */
+    .search {
+      width: 200px;
+      display: inline;
+      margin-left: 75%;
+      margin-bottom: 20px;
+    }
+    /* 프로필사진 */
+    .profile {
+      text-align: left;
+      box-shadow: 0 0 0 0.5px grey;
+      margin-left: -7%;
+      padding: 20px;
+      line-height: 150%;
+    }
+
+    a {
+      text-decoration: none;
+      color: black;
+    }
+    a:hover{
+      color: gray;
+    }
+    /* 팔로잉, 팔로우 모달 */
+    .modal-dialog{
+      margin-top: 200px;
+      height: 60%;
+    }
+    /* 게시글 사진 크기 */
+    .card-img-top{
+      height: 12rem;
+      object-fit: cover;
+    }
+    /* 태그 */
+    .tags{
+      margin-top: 60px;
+      line-height: 28px;
+    }

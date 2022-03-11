@@ -1,0 +1,244 @@
+* {
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: medium;
+    /*
+    letter-spacing: 1px;
+    */
+}
+
+a {
+    text-decoration: none;
+    color: rgb(94, 91, 91);
+}
+
+a:hover {
+    color: dodgerblue;
+    font-weight: bold;
+}
+
+/* ========== 좌측 고정메뉴 ========== */
+aside {
+    width: 100px;
+    position: -webkit-sticky;
+    position: sticky;
+    left: 110px;
+    top: 170px;
+}
+
+#sidebutton {
+    box-sizing: border-box;
+    width: 70px;
+    height: 160px;
+    margin: 2px auto;
+    background-color: rgb(228, 226, 226);
+    border-radius: 80px / 40px;
+}
+
+.likes {
+    font-size: 65px;
+    width: 45px;
+    margin-right: 14px;
+
+}
+
+.likes:hover {
+    color: red;
+}
+
+.sharing {
+    width: 55px;
+    margin-top: 5px;
+    margin-right: 100px;
+    margin-left: 4px;
+}
+
+@media screen and (max-width: 992px) {
+    .likes .sharing {
+        display: none;
+    }
+}
+
+/* ========== 우측 고정메뉴 ========== */
+.content-menu{
+    padding-left: 10px;
+}
+.content-menu > a{
+    font-size: 90%;
+}
+.bd-toc {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 10rem;
+    right: 0;
+    z-index: 2;
+    height: calc(100vh - 7rem);
+    overflow-y: auto;
+    grid-area: toc;
+}
+
+@media screen and (max-width: 992px) {
+    .bd-toc {
+        display: none;
+    }
+}
+
+.content-menu a:hover, .content-menu a.active {
+    color: dodgerblue;
+    font-weight: bold;
+}
+
+/* ========== 본문 ========== */
+.detail-main {
+    width: auto;
+    height: auto;
+}
+
+.info {
+    display: inline-block;
+}
+
+.writer {
+    margin: 1em;
+    display: inline-block;
+}
+
+.writer:hover {
+    color: black;
+    font-weight: bold;
+}
+
+.slash {
+    margin: 1em;
+    display: inline-block;
+}
+
+.date {
+    margin: 1em;
+    display: inline-block;
+}
+
+.hashtag {
+    margin: 1em;
+    display: inline-block;
+}
+
+.modify {
+    float: right;
+}
+
+section {
+    margin: 1em;
+    width: 750px;
+    margin-top: 70px;
+}
+
+h1 {
+    margin-top: 1em;
+    font-size: 50px;
+    font-weight: 800;
+}
+
+
+section {
+    width: auto;
+}
+
+#mini-title {
+    font-size: 25px;
+    font-weight: 800;
+}
+
+section > img {
+    max-width: 100%;
+}
+
+/* ========== 댓글 ========== */
+section.reply {
+    margin-left: 10px;
+}
+
+h2 {
+    font-weight: 800;
+    font-size: 25px;
+}
+
+.reply-wrap {
+    background: #ffffff;
+    padding: 15px;
+    border: 1px solid #ddd;
+    position: relative;
+    width: 135%;
+}
+
+.reply-wrap .reply-image {
+    position: absolute;
+    left: 15px;
+    top: 15px;
+}
+
+.reply-wrap .reply-content {
+    padding-left: 60px;
+}
+
+.reply-content textarea {
+    resize: none;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.reply-input>.form-control {
+    width: 80%;
+    margin-bottom: 5px;
+}
+
+.reply-input {
+    float: left;
+}
+
+.reply-group button {
+    float: right;
+}
+
+.reply-group small {
+
+    height: 20px;
+    line-height: 20px;
+}
+
+.reply-group a {
+    text-decoration: none;
+    color: #777;
+    float: right;
+}
+
+#prof {
+    width: 40px;
+}
+
+.ctext {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+/* ========== 대댓글 ========== */
+.hiddenDiv {
+    position: relative;
+    width: 100%;
+    padding-left: 60px;
+}
+
+
+.hiddenDiv .re-reply-image {
+    position: absolute;
+    left: 65px;
+    top: 40px;
+}
+
+.hiddenDiv .re-reply-content {
+    margin-top: 10px;
+    padding-left: 60px;
+}
+a{
+	text-decoration: none;
+	color: black;
+}

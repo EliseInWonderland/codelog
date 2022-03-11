@@ -1,0 +1,380 @@
+
+/* **********글작성 페이지 **********/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+html,body
+{   
+    height: 100vh;
+    width: 100vw;
+    
+}
+/* 글 작성 화면(화면 왼 쪽 절반 div) */
+.write-left-side{
+    float:left;
+    height: 100vh;
+    width: 50%;
+    overflow-x: hidden;
+    flex: 1 1 0%;
+ 
+    min-width: 0px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+    box-shadow: rgb(0 0 0 / 2%) 0px 0px 8px;
+    box-sizing: border-box;
+    position: absolute;
+    margin : 0 auto;
+    margin-left: 3rem;
+    
+    
+    
+}
+/* 제목 textarea */
+#title {
+    margin-top: 4rem;
+    margin-left: 3rem;
+    text-align: left;
+    font-size: 40px;
+    outline: none;
+    border: none;
+    height: 10vh;
+    background: transparent;
+    display: block;
+    padding: 0px;
+    font-size: 2.75rem;
+    width: 100%;
+    resize: none;
+    line-height: 1.5;
+    outline: none;
+    border: none;
+    font-weight: bold;
+    overflow: hidden;
+    text-align: left;
+    word-break: break-all;
+    margin-left: 3rem;
+    
+}
+.write-bbs {
+    margin-left: 3rem;
+    margin-left: 0;
+    width: 100%;
+    float: left;
+}
+/* 태그 input */
+.tag{
+    margin-left: 3rem;
+    text-align: left;
+    font-size: 23px;
+    outline: none;
+    border: none;
+    height: 81px;
+}
+
+/* 마크다운 버튼 div */
+.markdown-btns{
+    margin-left: 3rem;
+    margin-top: 6px;
+}
+/* 마크다운 버튼 */
+.markdown-btns > button{
+    
+    border: none;
+    outline: none;
+    box-shadow: none;
+    background: none;
+    width : 3.007rem;
+    height: 3.007rem;
+    font-size: 1.1rem;
+    font-family: 'Jua', sans-serif;
+}
+/* 본문 textarea */
+#content {
+    margin-top: 40px;
+    margin-left: 3rem;
+    border:none;
+    outline: none;
+    height: 51vh;
+    width: 63rem;
+    font-size: 1.3rem;
+    resize: none;
+    word-break: break-all;
+}
+/* .submit {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    height: 8rem;
+    width: 100%;
+    box-shadow: rgb(0 0 0 / 10%) 0px 0px 8px;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+  
+}
+.submit > button {
+    margin-bottom :  45px;
+} */
+
+/* 돌아가기 버튼 */
+.exit  {
+   /* padding-left: 3px; 
+    outline: none;
+    border: none;
+    background: none;
+    font-size: 30px;  */
+    margin-top: 3rem;
+    float: left;
+    border-color: gray;
+    box-shadow: none;
+    border-radius: 8px;
+    color: black;
+    background-color: white;
+    font-style: italic;
+    width: 20vh;
+    height:14vh;
+    font-size: 3rem;
+    border : none;
+    position: fixed;
+    bottom: 0%;
+}
+/* 돌아가기 버튼의 이미지 */
+/* .exit-img {
+    width: 30px;
+    height: 30px;
+} */
+
+/* 글 등록 버튼*/
+.ok {
+   margin-top: 3rem;
+   float: right;
+    border: none;
+    box-shadow: none;
+    border-radius:11px;
+    background-color: white;
+    font-style: italic;
+    width: 20vh;
+    height:14vh;
+    font-size: 3rem;
+    color: green;
+    margin-right: 9rem;
+    position: fixed;
+    bottom: 0%;
+    right: 45%;
+}
+
+/* 미리보기 화면 (페이지 오른쪽)*/
+.write-right-side{
+   
+    float:right;
+    height: 100vh;
+    width: 50%;
+    padding: 3rem;
+    flex: 1 1 0%;
+    overflow-y: auto;
+    min-width: 0px;
+    flex: 1 1 0%;
+    display: flex;
+    flex-direction: column;
+    border-bottom: olivedrab,1px;
+    position: relative;
+    z-index: 1;
+    box-shadow: rgb(0 0 0 / 2%) 0px 0px 8px;
+    box-sizing: border-box;
+    /* background: #FDE9E9; */
+    background: #F4EFEF;
+    display: flex;
+    -webkit-box-pack: justify;
+   
+    
+}
+#chooseFile {
+    display: none;
+}
+/* 위에랑 합쳐도 상관없을거 같은데 혹시 몰라서 나눈 영역*/
+.priview{
+  font-size: 2rem;
+  margin-top: 3rem;
+  text-align: center;
+  
+}
+#priview-title{
+    font-family: 'Jua', sans-serif;
+    font-size: 2.75rem;
+    white-space: normal;
+     word-break: break-all;
+}
+ #priview-content {
+     margin: 0 auto;
+     text-align: center;
+     width: 41.62503rem;
+    font-size: 1.3rem;
+     white-space: normal;
+     word-break: break-all;
+     margin-top: 60px;
+ }
+/* 미리보기 제목 영역*/
+
+
+/* chrome 환경의 스크롤을 예쁘게 바꿔줘요*/
+::-webkit-scrollbar {
+    width: 10px;  
+    height: 20px;  
+  }
+
+
+  ::-webkit-scrollbar-thumb {
+    
+    border-radius: 8px;
+
+    background-color: black;
+    
+  }
+
+ 
+ /*   글 등록 버튼을 누르고, 미리보기 화면의 css          */
+ @font-face {
+    font-family: 'HaenamFont';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/HaenamFont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ROKAFSlabSerifMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts2201-3@1.0/ROKAFSlabSerifMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'HS-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/HS-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ONE-Mobile-POP';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/ONE-Mobile-POP.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ONE-Mobile-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/ONE-Mobile-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+.fadeIn{
+    position:absolute; 
+    /* left: 108px; */
+    width: 100%;
+    
+    /* 애니메이션 이름 */
+    animation-name: fadeIn;
+    animation-duration:1s;
+  animation-duration: leaner;
+    animation-iteration-count:1;
+  animation-direction:alternate;
+  animation-fill-mode: forwards;
+  }
+  
+  /* 키프레임 이름 = 애니메이션 이름 */
+  @-webkit-keyframes fadeIn {
+
+    /* 0% {
+      top: 100%;
+    }
+    100% {
+      top:0%;
+    } */
+    0% {
+        opacity: 0;
+        transform: translate3d(0, -100%, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translateZ(0);
+    }
+}
+  
+  /*글검토 화면 내리기*/
+  .down{
+     position:absolute; 
+    /* left: 108px; */
+    width: 100%;
+    
+    /* 애니메이션 이름 */
+    animation-name: downdown;
+    animation-duration:1s;
+  animation-duration: leaner;
+    animation-iteration-count:1;
+  animation-direction:alternate;
+  animation-fill-mode: forwards;
+  }
+  
+  /* 키프레임 이름 = 애니메이션 이름 */
+
+  #check {
+      display: none;
+      margin : 0 auto;
+      
+      
+      
+  }
+  
+.container-down{
+    margin: 0 auto;
+    width: 60%;
+    
+   
+}
+
+#thumbnailUpload {
+    display :none;
+}
+  
