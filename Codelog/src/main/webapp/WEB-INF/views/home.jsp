@@ -1,50 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@include file="include/header.jsp"%>
+
+
 <!DOCTYPE html>
 <html>
 
 <head>
+
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!-- jQuery -->
-	<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-	<!-- bootstrap css -->
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-		integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-	<!-- bootstrap icon -->
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
-	<!-- fontawesome -->
-	<script src="https://kit.fontawesome.com/7b2a04da3a.js" crossorigin="anonymous"></script>
+
 	<style>
 
-		@import url("<c:url value='/css/header.css'/>");
-		
-
-		/*포스터 카드 호버 시 크기 확대+위로 올리가기*/
-
-		.poster:hover {
-			transform: scale(1.02) translateY(-0.5em);
-			transition-duration: 0.5s;
-		}
-		.poster:not(:hover) { 
-			transform: scale(1.0) translateY();
-			transition-duration: 0.5s;
-
-		 } 
-		 
-		 .z{
-		 	font-weight: bold;
-		 }
-		 .lo {
-		 	color: rgba(128, 128, 128, 0.654);
-		 	font-weight: lighter;
-		 
-		 	
-		 }
-		
-
+	    @import url("<c:url value='/css/home.css'/>");
+	
 	</style>
 	<title>Document</title>
 </head>
@@ -52,122 +24,36 @@
 <body style="margin-top: 1rem; font-family: ONE-Mobile-Regular;">
 
 	
-	<div class="container">
-		<div class="row px-md-4">
-			<!--로고 부분-->
-			<div class="col-md-2 px-md-0 my-md-0 pb-md-4">
-				<button><span class="logo" >codelog</span></button>
-				<!--<span style="font-size: 2rem; color: rgba(241, 31, 129, 0.897);">log</span>
-				<i class="fa-solid fa-heart" style="color: red;"></i>
-				<span style="font-size: 1.7rem; color: rgb(241, 31, 129);">g</span>-->
-			</div>
-
-            <!--해,알림,검색,글작성,메뉴토글 바-->
-			<div class="col-md-3 offset-7 p-0">
-				<!--해(다크모드)-->
-				<button type="button" class="btn c rounded-circle my-md-3 mx-md-1 px-md-2 hc" ><i
-						class="fa-regular fa-sun ic"></i></button>
-				<!--알림,알림 목록 토글-->		
-				<button type="button" class="btn rounded-circle position-relative c mx-md-1 my-md-3 px-md-3 hc" style=""
-					data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
-					aria-controls="collapseExample">
-				<!--알림 아이콘, 알림개수-->
-					<i class="fa-regular fa-bell ic"></i>
-					<span class="position-absolute top-0 translate-middle badge rounded-pill bg-danger" style="left: 2.8rem;">
-						2+
-						<span class="visually-hidden">unread messages</span>
-					</span>
-				<!--알림,알림 목록 토글-(위에 거랑 세트)-->	
-					<div class="collapse" id="collapseExample"
-						style="position: absolute; width: 20rem; top:2.7rem; right: 0rem; z-index: 1000;">
-						<div class="card" style="width: 100%;">
-
-							<!--알림 목록 내용-->
-							<div class="card-body cc" style=" height: 6rem; " id="so">
-								<div class="row">
-									<div class="col-md-3">
-										<img width="50rem" src="<c:url value='/img/cat2.jpg'/>" class="card-img-right rounded-circle"
-											alt=".">
-									</div>
-									<div class="col-md-9" style=" text-align: left;">
-										<span class="card-text"><strong>홍길동abcd</strong>님이 좋아요를 눌렀습니다.</span>
-
-
-										<p class="pt-1" style="font-size: 0.8rem;">3시간 전.</p>
-
-									</div>
-								</div>
-							</div>
-
-							<div class="card-body cc" style=" height: 6rem; ">
-								<div class="row">
-									<div class="col-md-3">
-										<img width="50rem" src="<c:url value='/img/pome3.jpg'/>" class="card-img-right rounded-circle"
-											alt=".">
-									</div>
-									<div class="col-md-9" style=" text-align: left;">
-										<span class="card-text"><strong>김철수1234</strong>님이 팔로우하였습니다.</span>
-
-										<p class="pt-1" style="font-size: 0.8rem; margin: auto 0;">19시간 전.</p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</button>
-
-				<!--검색 기능, 돋보기 아이콘-->
-				<button type="button" class="btn c rounded-circle mx-md-1 px-md-2 hc" id="so4"><i
-						class="fa-solid fa-magnifying-glass ic" ></i></button>
-				
-				<!--메뉴, 메뉴 토글-->		
-				<div style="display: inline; float: right;">
-					<button type="button" class="btn c rounded-circle px-md-0 my-md-2 pb-md-4 pt-md-0 position-relative"
-						 data-bs-toggle="collapse"
-						href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample2">
-						<!--메뉴 이미지+화살표 아래 아이콘-->
-						<img width="50rem" src="<c:url value='/img/pome3.jpg'/>" class="card-img-right rounded-circle mx-md-1"
-							alt="."><i class="fa-solid fa-caret-down"></i>
-				<!--메뉴, 메뉴 토글(위에꺼랑 세트)-->	
-						<div class="collapse" id="collapseExample2"
-							style="position: absolute; top:3.8rem; left: -3.6rem; z-index: 1000;">
-					<!--메뉴 토글 내용-->		
-							<div class="card" style="width: 8rem;">
-
-								<div class="card-body cc" id="so1">
-									<div style="text-align: right;">
-										<span class="card-text"><strong>내 코드로그</strong></span>
-									</div>
-								</div>
-
-								<div class="card-body cc" id="so2">
-									<div style="text-align: right;">
-										<span class="card-text"><strong>프로필 수정</strong></span>
-									</div>
-								</div>
-
-								<div class="card-body cc" id="so3">
-									<div style="text-align: right;">
-										<span class="card-text"><strong>로그아웃</strong></span>
-									</div>
-					</button>
-				</div>
-				<!--글 작성-->
-				<button type="button" class="btn btn-light rounded-circle my-md-3 px-md-1 bc"
-					>새 글 작성</button>
-			</div>
-		</div>
-
-		<div class="row" style="padding: 1.5rem 1.5rem 1.5rem 1.5rem;">
-			<div class="col-md-1 px-md-0" id="recent2"><button type="button" id="recent" class="btn z c rounded-circle p-0"
-					style="background-color:transparent; border-color: transparent;"><i
+<!-- 최신, 트랜딩 메뉴판 날짜설정메뉴는은 트랜딩메뉴 적용시만 활성 -->
+		<div class="row" style="padding: 1.5rem 1.5rem 0.5rem 1.5rem;">
+			<div class="col-md-1 px-md-0" id="recent2">
+			
+			<form action="<c:url value='/'/>" method="post">
+			<c:if test="${trending==true }"><input type="hidden" name=fromT value="true"></c:if>
+			<button type="submit" id="recent" class="btn z lo c p-0"
+					style="margin-left: 0.3rem;background-color:transparent; border-color: transparent;  <c:if test="${recent==true }">font-weight: bold; color: black;</c:if>"><i
 						class="fa-regular fa-clock fa-1x mx-md-1"></i><span class="m-0"
-						style="font-size: 1.1rem;">최신</span></button></div>
-			<div class="col-md-1 px-md-0"><button type="button" id="trend" class="btn z lo c rounded-circle p-0"
-					style="background-color:transparent; border-color: transparent;"><i
+						style="font-size: 1.1rem;">최신</span></button>
+						</form>
+			
+			</div>
+						
+						
+			<div class="col-md-1 px-md-0" >
+			<form action="<c:url value='/trending'/>" method="post">
+			<c:if test="${recent==true}"><input type="hidden" name=fromR value="true"></c:if>
+			<button type="submit" id="trend" class="btn z c lo p-0"
+					style="background-color:transparent; border-color: transparent; <c:if test="${trending==true }">font-weight: bold; color: black;</c:if>"><i
 						class="fa-solid fa-arrow-trend-up fa-1x mx-md-1"></i><span class="m-0"
-						style="font-size: 1.1rem;">트랜딩</span></button></div>
+						style="font-size: 1.1rem;">트랜딩</span></button>
+						
+							</form>
+							</div>
+							
 				<div class="col-md-2 px-md-3">
+			
+			
+			<c:if test="${trending==true }">	
 				<button type="button" class="btn c rounded-circle p-0 position-relative"
 					style="background-color:transparent; border-color: transparent;" data-bs-toggle="collapse"
 					href="#collapseExample3" role="button" aria-expanded="false" aria-controls="collapseExample3">
@@ -203,14 +89,16 @@
 								</div>
 							</div>
 				</button>
+				</c:if>
 			</div>
 		</div>
+	<!-- 최신, 트랜딩 밑줄 애니매이션 -->
+	<div id="tot"  style="<c:choose><c:when test="${trending==true && fromR==false}">margin-left:7.7rem;</c:when>
+		<c:otherwise>margin-left:0.7rem;</c:otherwise></c:choose>width: 5rem; height: 0.1rem; background-color: black;" ></div>
 	</div>
+		
 	<!-- Button trigger modal -->
-
-
-	<!-- Button trigger modal -->
-	<div class="container" style="margin: 0 auto;" id="posterbox">
+	<div class="container" style="margin-top: 2rem;" id="posterbox">
 
 		<!--포스터 카드 부분 한줄에 3개씩-->
 		<div class="row py-md-3">
@@ -456,74 +344,52 @@
 
 
 	<!-- bootstrap js -->
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
-	</script>
+	
 
 	<script>
-			/*메뉴바들 링크 기능(임시)*/
+			/*최신, 트랜딩 밑줄 애니매이션*/
 			$(document).ready(function () {
-			$("#so").click(function () {
-				$(location).attr("href", "https://www.naver.com/")
-			});
-			$("#so1").click(function () {
-				$(location).attr("href", "https://www.naver.com/")
-			});
-			$("#so2").click(function () {
-				$(location).attr("href", "https://www.naver.com/")
-			});
-			$("#so3").click(function () {
-				$(location).attr("href", "https://www.naver.com/")
-			});
-			$("#so4").click(function () {
-				$(location).attr("href", "https://www.naver.com/")
-			});
-			$(".logo").click(function () {
-				$(location).attr("href", "https://www.naver.com/")
-			});
+		
+			if(${recent}==true){
+				if(${fromT}==true ){
+					$("#tot").removeClass('toto');
+					$("#tot").addClass('toto2')
+				}				
+			}
+		
+			if(${trending}==true){
+				if(${fromR}==true){
+					$("#tot").removeClass('toto2');
+					$("#tot").addClass('toto')
+				}
+			}	
 			
-			$("#trend").click(function () {
-				$("#recent").addClass("lo");
-				$("#trend").removeClass("lo");
-			});
-			
+			/*화면 클릭시 날짜토글 숨기기*/
+			var LayerPopup3 = $("#collapseExample3");
 
-			$("#recent").click(function () {
-				$("#trend").addClass("lo");
-				$("#recent").removeClass("lo");	
-				
+			$(document).click(function (e){
+
+
+				if(LayerPopup3.hasClass("show")){
+				LayerPopup3.removeClass("show");
+				}
+
+
+			});
 			});
 
-		});
-			
+	
+		
 		
 /*화면 클릭시 열려있는 토글창 닫기*/
 
-		var LayerPopup = $("#collapseExample");
-var LayerPopup2 = $("#collapseExample2");
-var LayerPopup3 = $("#collapseExample3");
-
-		$(document).click(function (e){
-
-
-if(LayerPopup.hasClass("show")){
-LayerPopup.removeClass("show");
-}
-
-if(LayerPopup2.has(e.target).length === 0){
-LayerPopup2.removeClass("show");
-}
-
-if(LayerPopup3.has(e.target).length === 0){
-LayerPopup3.removeClass("show");
-}
-		});
+	
 
 
 /*무한스크롤*/
 		var count = 2;
-window.onscroll = function(e) {
-  if((window.innerHeight + window.scrollY) >= document.body.offsetHeight) { 
+	window.onscroll = function(e) {
+  	if((window.innerHeight + window.scrollY) >= document.body.offsetHeight) { 
     setTimeout(function(){
       var addContent = document.createElement("div");
       addContent.classList.add("box")

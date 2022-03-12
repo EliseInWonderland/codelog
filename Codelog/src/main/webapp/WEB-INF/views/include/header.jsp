@@ -158,28 +158,23 @@
 			$(".logo").click(function () {
 				$(location).attr("href", "https://www.naver.com/")
 			});
+			
+			/*화면 클릭시 알람,프로필 토글 숨김*/
+			var LayerPopup = $("#collapseExample");
+			var LayerPopup2 = $("#collapseExample2");
+
+			$(document).click(function (e){
+			if(LayerPopup.hasClass("show")){
+			LayerPopup.removeClass("show");
+			}
+
+			if(LayerPopup2.has(e.target).length === 0){
+			LayerPopup2.removeClass("show");
+			}
+					});
 
 		});
 
-
-		var LayerPopup = $("#collapseExample");
-var LayerPopup2 = $("#collapseExample2");
-
-		$(document).click(function (e){
-
-
-if(LayerPopup.hasClass("show")){
-LayerPopup.removeClass("show");
-}
-
-if(LayerPopup2.has(e.target).length === 0){
-LayerPopup2.removeClass("show");
-}
-
-		});
-
-
-		
 	</script>
 
 </body>
