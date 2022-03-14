@@ -18,23 +18,17 @@ import com.spring.codelog.board.model.BoardVO;
 
 @Component
 public class WriteCommand implements Command {
-     @Autowired
-     private BoardMapper mapper;
+	@Autowired
+	private BoardMapper mapper;
 	@Override
 	public void execute(HttpServletRequest httpServletRequest, BoardVO vo) {
-	
+
 		System.out.println("커맨드 객체 호출");
-//		List<BoardVO> posters = new ArrayList<BoardVO>();
-////		vo.setTitle(httpServletRequest.getParameter("title"));
-//		vo.setTags(httpServletRequest.getParameter("tags"));
-//		vo.setWriter(httpServletRequest.getParameter("writer"));
-//		vo.setContent(httpServletRequest.getParameter("content"));
-//		vo.setImgPath(httpServletRequest.getParameter("imgPath"));
-//		vo.setViewAll(httpServletRequest.getParameter("viewAll"));
-	  mapper.write(vo);
+
+		mapper.write(vo);
 		System.out.println("작성 완료");
-		
-//	   posters.add(vo);
+
+	
 
 	}
 
