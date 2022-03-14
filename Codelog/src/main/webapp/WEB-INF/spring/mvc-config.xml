@@ -28,7 +28,7 @@
 		<property name="mapperLocations" value="classpath:/mappers/**/*Mapper.xml" />
 	</bean>
 	
-	<mybatis-spring:scan base-package="com.spring.codelog.board.service"/>
+	<mybatis-spring:scan base-package="com.spring.codelog.board.mapper"/>
 
 </beans>
 

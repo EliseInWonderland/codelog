@@ -2,17 +2,23 @@ package com.spring.codelog;
 
 
 import java.util.Locale;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.spring.codelog.board.command.Command;
+import com.spring.codelog.board.command.WriteCommand;
 
 /**
  * Handles requests for the application home page.
  */
 @Controller
 public class HomeController {
-    		  
+    		 
    @RequestMapping(value = "/", method = RequestMethod.GET)
    public String home(Locale locale, Model model, String fromT) {    
       System.out.println("겟 formT "+fromT); 
@@ -89,4 +95,11 @@ public class HomeController {
       }
       return "home";
    }
+   @RequestMapping(value = "/write", method = RequestMethod.GET)
+	public String write(HttpServletRequest request ,Model model)
+	{
+		
+		return "board/write";
+		
+	}
 }

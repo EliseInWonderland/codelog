@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.spring.codelog.board.mapper.BoardMapper">
+<resultMap type="com.spring.codelog.board.model.BoardVO" id="writeMap">
+	<id property="boardId" column="board_id" />
+	<result property="userId" column="user_id" />
+	<result property="writer" column="writer" />
+	<result property="tags" column="tags" />
+	<result property="content" column="content" />
+	<result property="preview" column="preview" />
+	<result property="thumbnail" column="thumbnail" />
+	<result property="viewAll" column="view_all" />
+	<result property="imgPath" column="img_path" />
+	<result property="regDate" column="reg_date" />
+
+<!--private int boardId;
+	private String userId;
+	private String title;
+	private String writer;
+	private String tags;
+	private String content;
+	private String imgPath;
+	private int hit;
+	private int likes;
+	private Timestamp regDate;
+	private String preview;
+	private String thumbnail;
+	private String  viewAll;
+	 -->
+</resultMap>
+<insert id="write"> INSERT INTO proj_board(board_id, user_id, title, writer, tags, content, img_path, reg_date,preview, thumbnail, view_all) 
+VALUES(board_seq.NEXTVAL, 'id', #{title}, #{writer}, #{tags}, #{content}, 'dd',to_date(sysdate, 'yyyy.mm.dd hh24:mi'),#{preview}, 'dd', #{viewAll} )</insert>
+</mapper>
