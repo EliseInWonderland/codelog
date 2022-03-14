@@ -28,10 +28,7 @@
 		<property name="mapperLocations" value="classpath:/mappers/**/*Mapper.xml" />
 	</bean>
 	
-	<!-- 마이바티스 xml파일을 빈으로 등록하기 위한 스캔 설정 (인터페이스 어디있는지 경로 써 주세요)
-	<mybatis-spring:scan base-package="com.spring.mvc.board.repository"/>
-	<mybatis-spring:scan base-package="com.spring.mvc.user.repository"/>
-	 -->
+	<mybatis-spring:scan base-package="com.spring.codelog.board.service"/>
 
 </beans>
 

@@ -22,6 +22,8 @@ public class HomeController {
       if(fromT.equals("true")) {
     	  model.addAttribute("fromT", true);
     	  model.addAttribute("fromR", false);
+    	  model.addAttribute("fromR", false);
+
 
       }
       }
