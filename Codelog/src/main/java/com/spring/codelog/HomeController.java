@@ -2,16 +2,23 @@ package com.spring.codelog;
 
 
 import java.util.Locale;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.spring.codelog.board.service.HomeService;
 
 /**
  * Handles requests for the application home page.
  */
 @Controller
 public class HomeController {
+	
+	@Autowired
+	HomeService service;
     		  
    @RequestMapping(value = "/", method = RequestMethod.GET)
    public String home(Locale locale, Model model, String fromT) {    
@@ -52,6 +59,8 @@ public class HomeController {
    
    @RequestMapping(value = "/trending", method = RequestMethod.GET)
    public String trending(Locale locale, Model model, String fromR) {
+	   
+	  service.TPosters(); 
 	   
 	  System.out.println("겟 formR "+fromR);      
       model.addAttribute("trending", true);
