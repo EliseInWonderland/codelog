@@ -25,13 +25,15 @@
 	<!-- 마이바티스 SQL 동작을 위한 핵심 객체 SqlSessionFactory 클래스 빈 등록 -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="ds" />
+		<property name="mapperLocations" value="classpath:/mappers/user/*Mapper.xml" />
+		<!-- 보드 mapper 까지 작성되고나면 위에 코드 지우고 이거로 바꾸기 
 		<property name="mapperLocations" value="classpath:/mappers/**/*Mapper.xml" />
+		-->
 	</bean>
 	
-	<!-- 마이바티스 xml파일을 빈으로 등록하기 위한 스캔 설정 (인터페이스 어디있는지 경로 써 주세요)
-	<mybatis-spring:scan base-package="com.spring.mvc.board.repository"/>
-	<mybatis-spring:scan base-package="com.spring.mvc.user.repository"/>
-	 -->
+	<!-- 마이바티스 xml파일을 빈으로 등록하기 위한 스캔 설정 (인터페이스 어디있는지 경로 써 주세요) -->
+	<mybatis-spring:scan base-package="com.spring.codelog.user.mapper"/>
+	 
 
 </beans>
 

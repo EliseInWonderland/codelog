@@ -39,8 +39,8 @@
       <!-- 닉네임, 자기소개 영역 -->
       <div class="col-md-8 info-area">
         <div class="row">
-          <h3 class="nickname">닉네임</h3>
-          <p class="profile">자기소개자기소개자기소개</p>
+          <h3 class="nickname">${loginSession.nickname}</h3>
+          <p class="profile">${loginSession.userInfo}</p>
         </div>
         <div class="row">
           <div class="col-md-2">
@@ -50,8 +50,8 @@
       </div>
       <!-- 수정 버튼 눌렀을 때 보일 화면 -->
       <div class="col-md-8 mod-info">
-        <input type="text" id="nick-input" value="닉네임"> <br>
-        <textarea name="" id="profile-input" cols="50" rows="4" class="mt-3">자기소개</textarea>
+        <input type="text" id="nick-input" value="${loginSession.nickname}"> <br>
+        <textarea name="" id="profile-input" cols="50" rows="4" class="mt-3">${loginSession.userInfo}</textarea>
         <div class="row">
           <div class="col-md-2">
             <button class="save btn btn-primary">저장</button>
@@ -60,14 +60,14 @@
       </div>
     </div>
     <!-- 회원정보 수정 폼 시작 -->
-    <form action="#" class="user-info">
+    <form action="<c:url value='/user/updateUser' />" method="post" id="updateForm" class="user-info">
       <div class="mb-3 row">
         <div class="col-md-1"></div>
         <div class="col-md-3">
           <label for="id" class="col-md-12 col-form-label"><b>아이디</b></label>
         </div>
         <div class="col-md-4">
-          <input type="text" readonly class="form-control-plaintext" id="id" value="아이디아이디">
+          <input type="text" readonly class="form-control-plaintext" name="userId" id="id" value="${loginSession.userId}">
         </div>
         <div class="col-md-4"></div>
       </div>
@@ -78,7 +78,7 @@
           <label for="pw" class="col-md-12 col-form-label"><b>비밀번호</b></label>
         </div>
         <div class="col-md-3">
-          <input type="password" class="form-control" id="pw" value="비번">
+          <input type="password" class="form-control" name="userPw" id="pw" value="${loginSession.userPw}">
         </div>
         <div class="col-md-5"></div>
       </div>
@@ -89,34 +89,23 @@
           <label for="pwChk" class="col-form-label"><b>비밀번호 확인</b></label>
         </div>
         <div class="col-md-3">
-          <input type="password" class="form-control" id="pwChk" value="비번확인">
+          <input type="password" class="form-control" id="pw-check" value="">
         </div>
         <div class="col-md-5"></div>
       </div>
-      <hr>
-      <div class="mb-3 row">
-        <div class="col-md-1"></div>
-        <div class="col-md-3">
-          <label for="nick" class="col-md-12 col-form-label"><b>닉네임</b></label>
-        </div>
-        <div class="col-md-3">
-          <input type="text" class="form-control" id="nick" value="닉네임">
-        </div>
-        <div class="col-md-5"></div>
-      </div>
-      <hr>
+      <hr>      
       <div class="mb-3 row">
         <div class="col-md-1"></div>
         <div class="col-md-3">
           <label for="email" class="col-md-12 col-form-label"><b>이메일</b></label>
         </div>
         <div class="col-md-8">
-          <input type="text" class="form-control email-id " placeholder="E-mail" id="">
+          <input type="text" class="form-control email-id" name="email1" value="${loginSession.email1}" id="">
           <span class="at">@</span>
-          <select name="" id="" class="form-select mail-select">
-            <option selected value="naver">naver.com</option>
-            <option value="google">google.com</option>
-            <option value="daum">hanmail.net</option>
+          <select name="email2" id="" class="form-select mail-select">
+            <option value="naver.com" ${loginSession.email2 == 'naver.com' ? 'selected' : ''}>naver.com</option>
+            <option value="google.com" ${loginSession.email2 == 'google.com' ? 'selected' : ''}>google.com</option>
+            <option value="hanmail.net" ${loginSession.email2 == 'hanmail.net' ? 'selected' : ''}>hanmail.net</option>
           </select>
         </div>
         <div class="col-sm-7"></div>
@@ -125,8 +114,8 @@
       <div class="mb-3 row text-center">
         <div class="col-md-3"></div>
         <div class="col-md-6 mt-5">
-          <button type="button" class="btn btn-primary mod-submit-btn">수정</button>
-          <button type="button" class="btn btn-light mod-cancel-btn">취소</button>
+          <button type="button" id="update-form-btn" class="btn btn-primary mod-submit-btn">수정</button>
+          <button type="button" id="cancel-btn" class="btn btn-light mod-cancel-btn">취소</button>
         </div>
         <div class="col-md-3"></div>
       </div>
@@ -134,7 +123,7 @@
       <div class="mb-3 row">
         <div class="col-md-10"></div>
         <div class="col-md-2">
-          <button type="button" class="btn btn-dark" style="float: right;">회원탈퇴</button>
+          <button type="button" id="del-user-btn" class="btn btn-dark" style="float: right;">회원탈퇴</button>
         </div>
       </div>
     </form>
@@ -150,7 +139,7 @@
         console.log('수정버튼 클릭됨');
         $('.info-area').hide();
         $('.mod-info').show();
-      });
+      }); // 닉네임/자기소개 수정 인풋창 보여주기 끝
 
       // 닉네임/자기소개 수정 인풋창 숨겨주기
       $('.save').click(function () {
@@ -161,7 +150,7 @@
         $('.profile').text(profile);
         $('.mod-info').hide();
         $('.info-area').show();
-      });
+      }); // 닉네임/자기소개 수정 인풋창 숨겨주기 끝
 
       //프로필 이미지 업로드 시 미리보기
       $('#img_upload').change(function () {
@@ -176,12 +165,38 @@
           }
           reader.readAsDataURL(input.files[0]);
         }
-      }
+      } ////프로필 이미지 업로드 시 미리보기 끝
 
       //프로필 이미지 삭제
       $('#img-del-btn').click(function (e) {
-        $('#img-preview').attr('src', '/img/user_icon.png');
-      });
+          $('#img-preview').attr('src', '/img/user_icon.png');
+      }); //프로필 이미지 삭제 끝
+      
+      //회원정보 수정 (비밀번호, 이메일) 버튼 이벤트
+      $('#update-form-btn').click(function() {
+    	  if(confirm('수정하시겠습니까?')) {
+    		  $('#updateForm').submit();
+    	  } else {
+    		  return;
+    	  }
+	  }); //회원정보 수정 (비밀번호, 이메일) 버튼 이벤트 끝
+      
+      //회원정보수정 취소 버튼 클릭 이벤트 처리
+      $('#cancel-btn').click(function() {
+    	  location.href = "<c:url value='/user/mypage' />";	 
+	  }); //회원정보수정 취소 버튼 클릭 이벤트 처리 끝
+      
+      //회원탈퇴 버튼 클릭 이벤트 처리
+      $('#del-user-btn').click(function() {
+    	  const result = confirm('정말 탈퇴하시겠습니까?');
+    	  
+    	  if(result) {
+    		  location.href = "<c:url value='/user/delete' />";			
+    	  } else {
+    		  
+    	  }
+    	  
+	  }); //회원탈퇴 버튼 클릭 이벤트 처리 끝
 
     }); // end jQuery
   </script>

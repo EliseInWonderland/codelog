@@ -1,76 +1,70 @@
 @charset "UTF-8";
-	/*포스터 카드 호버 시 크기 확대+위로 올리가기*/
 
-		.poster:hover {
-			transform: scale(1.02) translateY(-0.5em);
-			transition-duration: 0.5s;
-		}
-		.poster:not(:hover) { 
-			transform: scale(1.0) translateY();
-			transition-duration: 0.5s;
+/*포스터 카드 호버 시 크기 확대+위로 올리가기*/
+.poster:hover {
+  transform: scale(1.02) translateY(-0.5em);
+  transition-duration: 0.5s;
+}
 
-		 } 
-		 
-		
-		 
-		 .z{
-		 	font-weight: bold;
-		 }
-		 .lo {
-		 	color: rgba(128, 128, 128, 0.654);
-		 	font-weight: lighter;
-		 
-		 	
-		 }
-	
+.poster:not(:hover) {
+  transform: scale(1.0) translateY();
+  transition-duration: 0.5s;
+}
+
+.z {
+  font-weight: bold;
+}
+
+.lo {
+  color: rgba(128, 128, 128, 0.654);
+  font-weight: lighter;
+}
+
 /* 밑줄 애니매이션 */
-	 
-		 .toto{
-  position:absolute;
-  background-color:#000;
-  color:#fff;
+.toto {
+  position: absolute;
+  background-color: #000;
+  color: #fff;
   animation-name: totrend;
-  animation-duration:1s;
-animation-duration: leaner;
-animation-fill-mode: forwards;
+  animation-duration: 1s;
+  animation-duration: leaner;
+  animation-fill-mode: forwards;
 }
 
 @-webkit-keyframes totrend {
   0% {
-    left:10%
-  
+    left: 10%
   }
+
   100% {
-    left:14.7%
+    left: 14.7%
   }
 }
 
- .toto2{
-  position:absolute;
- 
-  background-color:#000;
-  color:#fff;
+.toto2 {
+  position: absolute;
+  background-color: #000;
+  color: #fff;
   animation-name: torent;
-  animation-duration:1s;
-animation-duration: leaner;
-animation-fill-mode: forwards;
+  animation-duration: 1s;
+  animation-duration: leaner;
+  animation-fill-mode: forwards;
 }
 
 @-webkit-keyframes torent {
   0% {
-    left:14.7%
+    left: 14.7%
   }
+
   100% {
-    left:7.4%
+    left: 7.4%
   }
 }
 
 .toto3 {
-margin-left:10%; 
+  margin-left: 10%;
 }
 
 .toto4 {
-margin-left:14%; 
+  margin-left: 14%;
 }
-		
-		 

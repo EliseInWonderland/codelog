@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.spring.codelog.user.mapper.IUserMapper">
+
+	<resultMap type="com.spring.codelog.user.model.UserVO" id="UserMap">
+		<result property="userId" column="user_id" />
+		<result property="userPw" column="user_pw" />
+		<result property="userInfo" column="user_info" />
+		<result property="userImg" column="user_img" />
+	</resultMap>
+
+	<insert id="join">
+		INSERT INTO proj_user(user_id, user_pw, nickname, email1, email2)
+		VALUES(#{userId}, #{userPw}, #{nickname}, #{email1}, #{email2})
+	</insert>
+	
+	<select id="selectOne" resultMap="UserMap">
+		SELECT * FROM proj_user
+		WHERE user_id = #{userId}
+	</select>
+	
+	<update id="updateUser">
+		UPDATE proj_user
+		SET user_pw = #{userPw}, email1 = #{email1}, email2 = #{email2}
+		WHERE user_id = #{userId}
+	</update>
+	
+	<delete id="delete">
+		DELETE FROM proj_user
+		WHERE user_id = #{userId}
+	</delete>
+
+</mapper>

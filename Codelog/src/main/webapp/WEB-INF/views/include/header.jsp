@@ -29,7 +29,7 @@
 		<div class="row px-md-4">
 			<!--로고 부분-->
 			<div class="col-md-2 px-md-0 my-md-0 pb-md-4">
-				<button><span class="logo" >codelog</span></button>
+				<button id="logo-btn"><span class="logo">codelog</span></button>
 				<!--<span style="font-size: 2rem; color: rgba(241, 31, 129, 0.897);">log</span>
 				<i class="fa-solid fa-heart" style="color: red;"></i>
 				<span style="font-size: 1.7rem; color: rgb(241, 31, 129);">g</span>-->
@@ -92,7 +92,16 @@
 				<!--검색 기능, 돋보기 아이콘-->
 				<button type="button" class="btn c rounded-circle mx-md-1 px-md-2 hc" id="so4"><i
 						class="fa-solid fa-magnifying-glass ic" ></i></button>
+						
+				<!-- 로그인 안했을 때 보여주기 -->
+				<c:if test="${loginSession == null}">		
+				<!-- 로그인 버튼 누르면 모달창 열림-->
+	       		<button type="button" class="btn btn-primary mx-md-4 px-md-2 hc" data-bs-toggle="modal" data-bs-target="#loginModal">로그인</button>
+				</c:if>
+				<!-- 로그인 안했을 때 보여주기 끝 -->
 				
+				<!-- 로그인하면 보여주기 -->
+				<c:if test="${loginSession != null}">
 				<!--메뉴, 메뉴 토글-->		
 				<div style="display: inline; float: right;">
 					<button type="button" class="btn c rounded-circle px-md-0 my-md-2 pb-md-4 pt-md-0 position-relative"
@@ -125,58 +134,80 @@
 									</div>
 					</button>
 				</div>
+				</c:if>
+				<!-- 로그인하면 보여주기 -->
+				<c:if test="${loginSession != null}">
 				<!--글 작성-->
 				<button type="button" class="btn btn-light rounded-circle my-md-3 px-md-1 bc"
 					>새 글 작성</button>
+				</c:if>
+				<!-- 로그인하면 보여주기 끝 -->
 			</div>
 		</div>
 	<!-- Button trigger modal -->
+
+	
+	<%@ include file="../user/login-modal.jsp" %>
 
 	<!-- bootstrap js -->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
 	</script>
 
-	<script>
-				/*메뉴바들 링크 기능(임시)*/
-				$(document).ready(function () {
-			$("#so").click(function () {
-				$(location).attr("href", "https://www.naver.com/")
-			});
-			$("#so1").click(function () {
-				$(location).attr("href", "https://www.naver.com/")
-			});
-			$("#so2").click(function () {
-				$(location).attr("href", "https://www.naver.com/")
-			});
-			$("#so3").click(function () {
-				$(location).attr("href", "https://www.naver.com/")
-			});
-			$("#so4").click(function () {
-				$(location).attr("href", "https://www.naver.com/")
-			});
-			$(".logo").click(function () {
-				$(location).attr("href", "https://www.naver.com/")
-			});
-			
-			/*화면 클릭시 알람,프로필 토글 숨김*/
-			var LayerPopup = $("#collapseExample");
-			var LayerPopup2 = $("#collapseExample2");
+		<script>
+			//start jQuery
+			/*메뉴바들 링크 기능(임시)*/
+			$(document).ready(function() {
+				$("#so").click(function() {
+					$(location).attr("href", "https://www.naver.com/")
+				});					
+				$("#so4").click(function() {
+					$(location).attr("href", "https://www.naver.com/")
+				});
+				
+				//로고버튼 클릭 시 메인페이지 이동 이벤트 처리
+				$('#logo-btn').click(function() {
+					location.href = "<c:url value='/' />"
+				}); //로고버튼 클릭 이벤트 끝
 
-			$(document).click(function (e){
-			if(LayerPopup.hasClass("show")){
-			LayerPopup.removeClass("show");
-			}
+				/*화면 클릭시 알람,프로필 토글 숨김*/
+				var LayerPopup = $("#collapseExample");
+				var LayerPopup2 = $("#collapseExample2");
 
-			if(LayerPopup2.has(e.target).length === 0){
-			LayerPopup2.removeClass("show");
-			}
-					});
+				$(document).click(function(e) {
+					if (LayerPopup.hasClass("show")) {
+						LayerPopup.removeClass("show");
+					}
 
-		});
+					if (LayerPopup2.has(e.target).length === 0) {
+						LayerPopup2.removeClass("show");
+					}
+				});
+				
+				//내 코드로그(마이페이지) 클릭 이벤트 처리
+				$('#mycodelog').click(function() {
+					location.href = "<c:url value='/user/mypage' />";
+				}); //내 코드로그 이벤트 끝
+				
+				//프로필 수정 클릭 이벤트 처리
+				$('#edit-profile').click(function() {
+					location.href = "<c:url value='/user/editUser' />";
+				}); //프로필 수정 클릭 이벤트 끝
+				
+				//로그아웃 클릭 이벤트 처리
+				$('#logout').click(function() {
+					const result = confirm('정말 로그아웃 하시겠어요?');
+					
+					if(result) {
+						location.href = "<c:url value='/user/logout' />";
+					} else {
+						
+					}
+				}); //로그아웃 이벤트 끝
 
-	</script>
-
+			}); //end jQuery
+		</script>
+		
 </body>
 
 </html>
